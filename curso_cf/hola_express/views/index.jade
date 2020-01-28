@@ -1,0 +1,23 @@
+html
+	head
+		title Página con Express y Jade
+	body
+		// este
+		- var arreglo = [1,2,3,4,5,6];
+		- for (var i = arreglo.length - 1; i >= 0; i--)
+			p. 
+				Hola #[a(href="") #{arreglo[i]}] Cómo estás ?
+
+		if false
+			p hola
+		else
+			p adiós
+
+		each i in arreglo
+			case i
+				when 1
+					h6 Pelota #1
+				when 4
+					h6 Pelota #4
+				default
+					h6 Pelota neutra

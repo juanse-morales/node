@@ -1,0 +1,25 @@
+{
+  "name": "sgt",
+  "version": "1.0.0",
+  "description": "Sistema gestor de tareas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sgt"
+  ],
+  "author": "Juan, Wilder",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "*",
+    "bookshelf": "*",
+    "consolidate": "*",
+    "dust": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "express": "*",
+    "knex": "*",
+    "mysql": "*"
+  }
+}

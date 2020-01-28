@@ -1,0 +1,32 @@
+{
+  "name": "prueba EAMMS",
+  "version": "1.0.0",
+  "description": "prueba de la arquitectura del proyecto EAMMS",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "bookshelf": "*",
+    "consolidate": "*",
+    "cookie-parser": "*",
+    "dust": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "express": "*",
+    "express-session": "*",
+    "knex": "*",
+    "npm": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "pg": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "PH"
+  ],
+  "author": "Juan",
+  "license": "ISC"
+}

@@ -1,0 +1,707 @@
+{>"layout" /}
+{<title} Registrar hoja de vida de A. E.{/title}
+{<includeCss}
+  <!-- bootstrap-wysiwyg -->
+  <link href="static/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+  <!-- Select2 -->
+  <link href="static/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+  <!-- Switchery -->
+  <link href="static/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+  <!-- starrr -->
+  <link href="static/vendors/starrr/dist/starrr.css" rel="stylesheet">
+  <!-- bootstrap-daterangepicker -->
+  <link href="static/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+{/includeCss}
+
+{<pageContent}
+  <div class="" ng-controller="regHVAE">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Registrar hoja de vida del activo electromecánico</h3><br>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Ir</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Hoja de vida del equipo<small>Digite la información técnica del equipo</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <form class="form-horizontal form-label-left">
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombreEquipo">Nombre</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" id="nombreEquipo" ng-model="newAe.nombre" placeholder="Nombre del equipo" required="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tipoEquipo">Tipo</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" id="tipoEquipo" ng-model="newAe.tipo" placeholder="Tipo de activo" required="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marcaEquipo">Marca</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" id="marcaEquipo" ng-model="newAe.marca" placeholder="Marca del equipo" required="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modeloEquipo">Modelo</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" id="modeloEquipo" ng-model="newAe.modelo" placeholder="Modelo del equipo" required="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="serieEquipo">No. de Serie</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" id="serieEquipo" ng-model="newAe.serie" placeholder="Número de serie del equipo" required="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ubicacionEquipo">Ubicación</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" id="ubicacionEquipo" ng-model="newAe.ubicacion" placeholder="Ubicación física del activo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costoEquipo">Costo</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" class="form-control" id="costoEquipo" ng-model="newAe.costo" placeholder="Costo del activo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ph"> Copropiedad</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select name="ph" id="ph" ng-model="newAe.ph" class="select2_single form-control" tabindex="-1" required="">
+                    <option></option>
+                    {#scope}
+                    <option ng-repeat="i in phs" value="{id}">{nombre}</option>
+                    {/scope}
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="provact">Proveedora del equipo</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select name="provact" id="provact" ng-model="newAe.provact" class="select2_single form-control" tabindex="-1" required="">
+                    <option></option>
+                    {#scope}
+                    <option ng-repeat="i in epas" value={id}>{nombre}</option>
+                    {/scope}
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="provmantto">Proveedora de mantto</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select name="provmantto"  id="provmantto" ng-model="newAe.provmantto" class="select2_single form-control" tabindex="-1" required="">
+                    <option></option>
+                    {#scope}
+                    <option ng-repeat="i in epms" value="{id}">{nombre}</option>
+                    {/scope}
+                  </select>
+                </div>
+              </div>
+
+              <!-- Plantilla -->
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <textarea class="form-control" rows="3" placeholder="Date Of Birth"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="password" class="form-control" value="passwordonetwo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">AutoComplete</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control">
+                    <option>Choose option</option>
+                    <option>Option one</option>
+                    <option>Option two</option>
+                    <option>Option three</option>
+                    <option>Option four</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Custom</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="select2_single form-control" tabindex="-1">
+                    <option></option>
+                    <option value="AK">Alaska</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="CA">California</option>
+                    <option value="NV">Nevada</option>
+                    <option value="OR">Oregon</option>
+                    <option value="WA">Washington</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="CO">Colorado</option>
+                    <option value="ID">Idaho</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="UT">Utah</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TX">Texas</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Grouped</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="select2_group form-control">
+                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                      <option value="AK">Alaska</option>
+                      <option value="HI">Hawaii</option>
+                    </optgroup>
+                    <optgroup label="Pacific Time Zone">
+                      <option value="CA">California</option>
+                      <option value="NV">Nevada</option>
+                      <option value="OR">Oregon</option>
+                      <option value="WA">Washington</option>
+                    </optgroup>
+                    <optgroup label="Mountain Time Zone">
+                      <option value="AZ">Arizona</option>
+                      <option value="CO">Colorado</option>
+                      <option value="ID">Idaho</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="UT">Utah</option>
+                      <option value="WY">Wyoming</option>
+                    </optgroup>
+                    <optgroup label="Central Time Zone">
+                      <option value="AL">Alabama</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TX">Texas</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="WI">Wisconsin</option>
+                    </optgroup>
+                    <optgroup label="Eastern Time Zone">
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="IN">Indiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="OH">Ohio</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WV">West Virginia</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Multiple</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="select2_multiple form-control" multiple="multiple">
+                    <option>Choose option</option>
+                    <option>Option one</option>
+                    <option>Option two</option>
+                    <option>Option three</option>
+                    <option>Option four</option>
+                    <option>Option five</option>
+                    <option>Option six</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Input Tags</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="tags_1" type="text" class="tags form-control" value="social, adverts, sales" />
+                  <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 col-sm-3 col-xs-12 control-label">Checkboxes and radios
+                  <br>
+                  <small class="text-navy">Normal Bootstrap elements</small>
+                </label>
+
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Option one. select more than one options
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value=""> Option two. select more than one options
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one. only select one option
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two. only select one option
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 col-sm-3 col-xs-12 control-label">Checkboxes and radios
+                  <br>
+                  <small class="text-navy">Normal Bootstrap elements</small>
+                </label>
+
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat" checked="checked"> Checked
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat"> Unchecked
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat" disabled="disabled"> Disabled
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="flat" disabled="disabled" checked="checked"> Disabled & checked
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" class="flat" checked name="iCheck"> Checked
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" class="flat" name="iCheck"> Unchecked
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" class="flat" name="iCheck" disabled="disabled"> Disabled
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" class="flat" name="iCheck3" disabled="disabled" checked> Disabled & Checked
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Switch</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div class="">
+                    <label>
+                      <input type="checkbox" class="js-switch" checked /> Checked
+                    </label>
+                  </div>
+                  <div class="">
+                    <label>
+                      <input type="checkbox" class="js-switch" /> Unchecked
+                    </label>
+                  </div>
+                  <div class="">
+                    <label>
+                      <input type="checkbox" class="js-switch" disabled="disabled" /> Disabled
+                    </label>
+                  </div>
+                  <div class="">
+                    <label>
+                      <input type="checkbox" class="js-switch" disabled="disabled" checked="checked" /> Disabled Checked
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                  <button type="reset" class="btn btn-warning">Vaciar campos</button>
+                  <button type="submit" class="btn btn-success" ng-click="addAe()">Guardar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Copropiedad<small>Lista de copropiedades guardadas</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="x_content" >
+            <div ng-show="phs.length>0">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Ubicación</th>
+                    <th>Dirección</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {#scope}
+                  <tr ng-repeat="i in phs">
+                    <th>{nombre}</th>
+                    <td>{ubicacion}</td>
+                    <td>{direccion}</td>
+                  </tr>
+                  {/scope}
+                </tbody>
+              </table>
+              <div class="ln_solid"></div>
+            </div>
+            <p>Registrar propiedad horizontal:</p>
+
+            <form class="form-horizontal form-label-left ">
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="nombrePh" id="nombrePh" ng-model="newPh.nombre" class="form-control has-feedback-left" placeholder="Nombre" required="">
+                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="telefonoPh" id="telefonoPh" ng-model="newPh.telefono" class="form-control" placeholder="Teléfono">
+                <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ubicación</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" name="ubicacionPh" id="ubicacionPh" ng-model="newPh.ubicacion" class="form-control" placeholder="Localización regional de la Copropiedad">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Dirección </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" name="direccionPh" id="direccionPh" ng-model="newPh.direccion" class="form-control" placeholder="Dirección">
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                  <button type="reset" class="btn btn-warning">Vaciar campos</button>
+                  <button type="submit" ng-click="addPh()" class="btn btn-success">Guardar</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Empresa proveedora del activo<small>Lista de proveedores</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content" >
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Ubicación</th>
+                  <th>Dirección</th>
+                </tr>
+              </thead>
+              <tbody>
+                {#scope}
+                  <tr ng-repeat="i in epas">
+                    <th scope="row">{nombre}</th>
+                    <td>{ubicacion}</td>
+                    <td>{direccion}</td>
+                  </tr>
+                {/scope}
+              </tbody>
+            </table>
+
+            <div class="ln_solid"></div>
+            <p>Registrar empresa proveedora del activo:</p>
+            
+            <form class="form-horizontal form-label-left ">
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="nombreEpa" id="nombreEpa" ng-model="newEpa.nombre" class="form-control has-feedback-left" placeholder="Nombre">
+                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" class="form-control" id="" placeholder="No colocar nada aquí :v">
+                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="correoEpa" id="correoEpa" ng-model="newEpa.correo" class="form-control has-feedback-left" placeholder="Correo">
+                <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="telefonoEpa" id="telefonoEpa" ng-model="newEpa.telefono" class="form-control" placeholder="Teléfono">
+                <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ubicación</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" name="ubicacionEpa" id="ubicacionEpa" ng-model="newEpa.ubicacion" class="form-control" placeholder="Localización regional de la empresa">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Dirección </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" name="direccionEpa" id="direccionEpa" ng-model="newEpa.direccion" class="form-control" placeholder="Dirección">
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                  <button type="reset" class="btn btn-warning">Vaciar campos</button>
+                  <button type="submit" ng-click="addEpa()" class="btn btn-success">Guardar</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Empresa proveedora de mantto<small>Lista de proveedores</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content" >
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Ubicación</th>
+                  <th>Dirección</th>
+                </tr>
+              </thead>
+              <tbody>
+                {#scope}
+                  <tr ng-repeat="i in epms">
+                    <th>{nombre}</th>
+                    <td>{ubicacion}</td>
+                    <td>{direccion}</td>
+                  </tr>
+                {/scope}
+              </tbody>
+            </table>
+
+            <div class="ln_solid"></div>
+            <p>Registrar empresa proveedora de mantenimiento:</p>
+
+            <form class="form-horizontal form-label-left ">
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="nombreEpm" id="nombreEpm" ng-model="newEpm.nombre" class="form-control has-feedback-left" placeholder="Nombre">
+                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" class="form-control" id="" placeholder="No colocar nada aquí :v">
+                <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="correoEpm" id="correoEpm" ng-model="newEpm.correo" class="form-control has-feedback-left" placeholder="Correo">
+                <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <input type="text" name="telefonoEpm" id="telefonoEpm" ng-model="newEpm.telefono" class="form-control" placeholder="Teléfono">
+                <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ubicación</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" name="ubicacionEpm" id="ubicacionEpm" ng-model="newEpm.ubicacion" class="form-control" placeholder="Localización regional de la empresa">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Dirección </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" name="direccionEpm" id="direccionEpm" ng-model="newEpm.direccion" class="form-control" placeholder="Dirección">
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                  <button type="reset" class="btn btn-warning">Vaciar campos</button>
+                  <button ng-click="addEpm()" class="btn btn-success">Guardar</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+{/pageContent}
+
+{<includeJs}
+  <!-- bootstrap-progressbar -->
+  <script src="static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+  <!-- bootstrap-daterangepicker -->
+  <script src="static/vendors/moment/min/moment.min.js"></script>
+  <script src="static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <!-- bootstrap-wysiwyg -->
+  <script src="static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+  <script src="static/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+  <script src="static/vendors/google-code-prettify/src/prettify.js"></script>
+  <!-- jQuery Tags Input -->
+  <script src="static/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+  <!-- Switchery -->
+  <script src="static/vendors/switchery/dist/switchery.min.js"></script>
+  <!-- Select2 -->
+  <script src="static/vendors/select2/dist/js/select2.full.min.js"></script>
+  <!-- Parsley -->
+  <script src="static/vendors/parsleyjs/dist/parsley.min.js"></script>
+  <!-- Autosize -->
+  <script src="static/vendors/autosize/dist/autosize.min.js"></script>
+  <!-- jQuery autocomplete -->
+  <script src="static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+  <!-- starrr -->
+  <script src="static/vendors/starrr/dist/starrr.js"></script>
+  <!-- Controller -->
+  <script src="static/production/ctrls/formAe.js"></script>
+{/includeJs}

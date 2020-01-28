@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/icon5.png">
+    <title>HPMS</title>
+
+    <!-- Bootstrap -->
+    <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="static/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="static/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="static/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form action="/" method="POST">
+              <h1>¡Empezar!</h1>
+              <div>
+                <input type="text" name="username" class="form-control" placeholder="Nombre de usuario" required="" >
+              </div>
+              <div>
+                <input type="password" name="password" class="form-control" placeholder="Contraseña" required="" >
+              </div>
+              <div>
+                <input type="submit" class="btn btn-success submit" value="Iniciar sesión">
+                <a class="reset_pass" href="#">¿Perdiste tu contraseña?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link"> ¿Eres nuevo? 
+                  <a href="#signup" class="to_register">Crear una cuenta </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-check-square-o"></i> HPMS</h1>
+                  <p>2019 © Copyright. Semillero de Arquitectura de Software. Universidad de Cartagena </p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form action="/signup" method="POST">
+              <h1>Crear una cuenta</h1>
+              <div>
+                <input type="text" name="nombres" class="form-control" placeholder="Nombres" required="" >
+              </div>
+              <div>
+                <input type="text" name="apellidos" class="form-control" placeholder="Apellidos" required="" >
+              </div>
+              <div>
+                <input type="email" name="correo" class="form-control" placeholder="Correo">
+              </div>
+              <div>
+                <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
+              </div>
+              <div>
+                <input type="text" name="username" class="form-control" placeholder="Username" required="" >
+              </div>
+              <div>
+                <input type="password" name="password" class="form-control" placeholder="Password" required="" >
+              </div>
+              <div>
+                <input type="text" name="privilegio" class="form-control" placeholder="Privilegio del usuario" required="" >
+              </div>
+              <div>
+                <input type="password" name="id_emp" class="form-control" placeholder="Código de la empresa" required="" >
+              </div>
+              <div>
+                <input type="submit" class="btn btn-primary submit" value="Registrar">
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">¿Ya eres usuario? 
+                  <a href="#signin" class="to_register">Iniciar sesión </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br>
+                <div>
+                  <h1><i class="fa fa-check-square-o"></i> HPMS</h1>
+                  <p>2019 © Copyright. Semillero de Arquitectura de Software. Universidad de Cartagena</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

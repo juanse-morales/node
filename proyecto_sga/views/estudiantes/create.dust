@@ -1,0 +1,77 @@
+{>layout /}
+{<title}Registrar{/title}
+{<pageContent}
+<div id="page-wrapper">
+  <div class="container-fluid">
+  <div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+    <h4 class="page-title">Registrar</h4> 
+    </div>
+    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li class="active">Registrar</li>
+    </ol>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-5 col-xs-6">
+    <div class="white-box">
+      <h4>Registrar Tarea </h4><br>
+      <form class="form-horizontal form-material" action="/tarea/store" method="POST">
+        <div class="form-group">
+          <label for="asunto" class="col-md-12">Asunto</label>
+          <div class="col-md-12">
+            <input type="text" name="asunto" id="asunto" class="form-control form-control-line" placeholder="Realizar ejercicios" required="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fecha" class="col-md-12">Fecha</label>
+          <div class="col-md-12">
+            <input type="text" name="fecha" id="fecha" class="form-control form-control-line" placeholder="2019-11-24" required="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="descripcion" class="col-md-12">Descripción</label>
+          <div class="col-md-12">
+            <textarea name="descripcion" id="descripcion" class="form-control form-control-line" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <input type="submit" value="Registrar" class="btn btn-primary">
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+  
+    <div class="col-md-5 col-xs-6">
+    <div class="white-box">
+      <h4>Registrar Estudiante </h4><br>
+      <form class="form-horizontal form-material" action="/estudiante/store" method="POST">
+      <div class="form-group">
+        <label for="nombres" class="col-md-12">Nombres completos</label>
+        <div class="col-md-12">
+          <input type="text" name="nombres" id="nombres" class="form-control form-control-line" placeholder="Johnathan Doe" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="apellidos" class="col-md-12">Apellidos completos</label>
+        <div class="col-md-12">
+          <input type="text" name="apellidos" id="apellidos" class="form-control form-control-line" placeholder="Rodriguez Sarate" required="">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-12">
+          <input type="submit" value="Registrar" class="btn btn-primary">
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+{/pageContent}

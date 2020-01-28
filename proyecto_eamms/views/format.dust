@@ -1,0 +1,10 @@
+{>"layout" /}
+{<title}{/title}
+{<includeCss}
+{/includeCss}
+
+{<pageContent}
+{/pageContent}
+
+{<includeJs}
+{/includeJs}
