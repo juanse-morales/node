@@ -1,6 +1,7 @@
-// Promesa: es una forma de manejar la sincronía de Js que surgió a partir de la versión 6.
-// Es un objeto que representa la terminación o el fracaso eventual de una operación asíncrona.
-// Esencialmente, una promesa es un objeto devuelto al cual se adjuntan funciones callback, en lugar de pasar callbacks a una función.
+/* Promesa: es una forma de manejar la sincronía de Js que surgió a partir de la versión 6.
+Es un objeto que representa la terminación o el fracaso eventual de una operación asíncrona.
+Esencialmente, una promesa es un objeto devuelto al cual se adjuntan funciones callback, 
+en lugar de pasar callbacks a una función. */
 
 const booksDb = [
   {
